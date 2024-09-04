@@ -53,7 +53,7 @@ module.exports.isCampgroundAuthorOrAdmin = async (req, res, next) => {
         }
     } catch (e) {
         req.flash('error', 'You do not have permission to do that');
-        res.redirect(`/campgrounds/${id}`);
+        res.redirect(`/campgrounds`);
     }
 }
 
