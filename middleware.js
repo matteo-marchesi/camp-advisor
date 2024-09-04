@@ -43,12 +43,17 @@ module.exports.validateReview = (req, res, next) => {
 
 module.exports.isCampgroundAuthorOrAdmin = async (req, res, next) => {
     const {id} = req.params;
-    const campground = await Campground.findById(id);
-    if (!campground.author.equals(req.user._id) && req.user.id !== res.locals.admin) {
+    try {
+        const campground = await Campground.findById(id);
+        if (!campground.author.equals(req.user._id) && req.user.id !== res.locals.admin) {
+            req.flash('error', 'You do not have permission to do that');
+            res.redirect(`/campgrounds/${id}`);
+        } else {
+            next();
+        }
+    } catch (e) {
         req.flash('error', 'You do not have permission to do that');
         res.redirect(`/campgrounds/${id}`);
-    } else {
-        next();
     }
 }
 
