@@ -16,7 +16,7 @@ const seedDB = async () => {
     console.log('Emptying collection...');
     await Campground.deleteMany({});
     console.log('Seeding database...');
-    for (let i = 0; i < 300; i++) {
+    for (let i = 0; i < 100; i++) {
         const random1000 = Math.floor(Math.random() * 1000);
         const price = Math.floor(Math.random() * 20) + 10;
         const camp = new Campground({
@@ -31,12 +31,24 @@ const seedDB = async () => {
             },
             images: [
                 {
-                    url: 'https://res.cloudinary.com/dfjdnimlc/image/upload/v1725031389/wkmi8d0kjdkzvxkvt5bi.jpg',
-                    filename: 'wkmi8d0kjdkzvxkvt5bi',
+                    url: 'https://res.cloudinary.com/dfjdnimlc/image/upload/v1727368604/camp-advisor/dztsndm4r8cbzayotyro.jpg',
+                    filename: 'dztsndm4r8cbzayotyro',
                 },
                 {
-                    url: 'https://res.cloudinary.com/dfjdnimlc/image/upload/v1725031434/towkbo7fgh53wqdb5ojz.jpg',
-                    filename: 'towkbo7fgh53wqdb5ojz',
+                    url: 'https://res.cloudinary.com/dfjdnimlc/image/upload/v1727368604/camp-advisor/avyzdatfxf7dfcahymuq.jpg',
+                    filename: 'avyzdatfxf7dfcahymuq',
+                },
+                {
+                    url: 'https://res.cloudinary.com/dfjdnimlc/image/upload/v1727368604/camp-advisor/dwrqoivhrfy61mlvomtu.jpg',
+                    filename: 'dwrqoivhrfy61mlvomtu',
+                },
+                {
+                    url: 'https://res.cloudinary.com/dfjdnimlc/image/upload/v1727368604/camp-advisor/ypb0bczgzvrwuevkd3e9.jpg',
+                    filename: 'ypb0bczgzvrwuevkd3e9',
+                },
+                {
+                    url: 'https://res.cloudinary.com/dfjdnimlc/image/upload/v1727368604/camp-advisor/p8c1qksp1mesiscriuis.jpg',
+                    filename: 'p8c1qksp1mesiscriuis',
                 }
             ],
             price: price,
